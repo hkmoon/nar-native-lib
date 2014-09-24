@@ -6,7 +6,7 @@ public class hello {
 	{
 		NativeLibraryUtil.loadVersionedNativeLibrary(hello.class, "hello-native-1.0-SNAPSHOT");
 	}
-	public native void test();
+	public native static byte test();
 
 	public native String sayHello();
 

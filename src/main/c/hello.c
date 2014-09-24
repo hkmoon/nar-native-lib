@@ -2,10 +2,10 @@
 #include <stdio.h>
 #include "c_hello.h"
 
-JNIEXPORT void JNICALL Java_c_hello_test
+JNIEXPORT jbyte JNICALL Java_c_hello_test
   (JNIEnv *env, jclass clazz)
 {
-	fprintf(stderr, "Successfully testing c\n");
+	return (jbyte)108;
 }
 
 JNIEXPORT jstring JNICALL Java_c_hello_sayHello

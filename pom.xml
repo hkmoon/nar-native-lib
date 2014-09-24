@@ -16,6 +16,12 @@
             <artifactId>native-lib-loader</artifactId>
             <version>2.0.2</version>
         </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.7</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -51,7 +57,24 @@
                             </includes>
                         </javah>
                     </libraries>
+                    <tests>
+                        <test>
+                            <name>helloTest</name>
+                            <link>shared</link>
+                        </test>
+                    </tests>
                 </configuration>
+                <executions>
+                    <execution>
+                        <id>run-compile</id>
+                        <goals>
+                            <goal>nar-javah</goal>
+                            <goal>nar-gnu-make</goal>
+                            <goal>nar-compile</goal>
+                            <goal>nar-system-generate</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
