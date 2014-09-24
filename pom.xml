@@ -48,7 +48,7 @@
                     <libraries>
                         <library>
                             <type>jni</type>
-                            <narSystemPackage>native-lib-loader</narSystemPackage>
+                            <narSystemPackage>native-lib-loader:c</narSystemPackage>
                             <linkCPP>false</linkCPP>
                         </library>
                         <javah>

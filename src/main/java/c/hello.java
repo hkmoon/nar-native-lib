@@ -1,10 +1,9 @@
 package c;
-import org.scijava.nativelib.NativeLibraryUtil;
 
 public class hello {
 	static
 	{
-		NativeLibraryUtil.loadVersionedNativeLibrary(hello.class, "hello-native-1.0-SNAPSHOT");
+		NarSystem.loadLibrary();
 	}
 	public native static byte test();
 
