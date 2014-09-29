@@ -15,6 +15,6 @@ public class hello {
 
 	public static void main(final String[] args) {
 		hello c = new hello();
-		c.run(null);
+		System.out.println(c.sayHello());
 	}
 }

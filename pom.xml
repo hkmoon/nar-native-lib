@@ -7,6 +7,7 @@
     <groupId>de.mpi-cbg</groupId>
     <artifactId>hello-native</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>nar</packaging>
 
     <name>NAR with native-lib-loader</name>
 
@@ -26,16 +27,20 @@
 
     <build>
         <defaultGoal>install</defaultGoal>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>com.github.maven-nar</groupId>
-                    <artifactId>nar-maven-plugin</artifactId>
-                    <version>3.0.0</version>
-                </plugin>
-            </plugins>
-        </pluginManagement>
         <plugins>
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>c.hello</mainClass>
+                        </manifest>
+                    </archive>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>com.github.maven-nar</groupId>
                 <artifactId>nar-maven-plugin</artifactId>
@@ -48,14 +53,9 @@
                     <libraries>
                         <library>
                             <type>jni</type>
-                            <narSystemPackage>native-lib-loader:c</narSystemPackage>
+                            <narSystemPackage>c</narSystemPackage>
                             <linkCPP>false</linkCPP>
                         </library>
-                        <javah>
-                            <includes>
-                                <include></include>
-                            </includes>
-                        </javah>
                     </libraries>
                     <tests>
                         <test>
@@ -64,17 +64,6 @@
                         </test>
                     </tests>
                 </configuration>
-                <executions>
-                    <execution>
-                        <id>run-compile</id>
-                        <goals>
-                            <goal>nar-javah</goal>
-                            <goal>nar-gnu-make</goal>
-                            <goal>nar-compile</goal>
-                            <goal>nar-system-generate</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
     </build>
