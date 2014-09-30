@@ -36,10 +36,19 @@
                             <mainClass>c.hello</mainClass>
                         </manifest>
                     </archive>
-                    <descriptorRefs>
-                        <descriptorRef>jar-with-dependencies</descriptorRef>
-                    </descriptorRefs>
+                    <descriptors>
+                        <descriptor>src/main/assembly/uber.xml</descriptor>
+                    </descriptors>
                 </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>attached</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
             <plugin>
                 <groupId>com.github.maven-nar</groupId>
@@ -57,12 +66,6 @@
                             <linkCPP>false</linkCPP>
                         </library>
                     </libraries>
-                    <tests>
-                        <test>
-                            <name>helloTest</name>
-                            <link>shared</link>
-                        </test>
-                    </tests>
                 </configuration>
             </plugin>
         </plugins>
