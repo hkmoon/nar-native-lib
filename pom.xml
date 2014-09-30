@@ -57,12 +57,6 @@
                             <linkCPP>false</linkCPP>
                         </library>
                     </libraries>
-                    <tests>
-                        <test>
-                            <name>helloTest</name>
-                            <link>shared</link>
-                        </test>
-                    </tests>
                 </configuration>
             </plugin>
         </plugins>
