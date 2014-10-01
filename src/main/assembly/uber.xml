@@ -6,6 +6,14 @@
   <includeBaseDirectory>false</includeBaseDirectory>
   <dependencySets>
     <dependencySet>
+      <unpackOptions>
+        <excludes>
+          <exclude>**/*.manifest</exclude>
+          <exclude>**/*.exp</exclude>
+          <exclude>**/*.lib</exclude>
+          <exclude>**/history.xml*</exclude>
+        </excludes>
+      </unpackOptions>
       <useProjectAttachments>true</useProjectAttachments>
       <useTransitiveFiltering>false</useTransitiveFiltering>
       <outputDirectory>/</outputDirectory>
