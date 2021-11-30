@@ -15,7 +15,7 @@ JNIEXPORT jstring JNICALL Java_c_hello_sayHello
 
 	char buf[40];
 
-	sprintf(buf, "%s", "Hello from JNI!");
+	sprintf(buf, "%s", "BIER is awesome!");
 
 	value = (*env)->NewStringUTF( env, buf );
 
